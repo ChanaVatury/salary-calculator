@@ -1,0 +1,127 @@
+<!-- <form [formGroup]="form" (ngSubmit)="submit()">
+    <label>
+      חלקיות משרה:
+      <select formControlName="partTimePercent" required>
+        <option *ngFor="let option of partTimePercents$ | async" [value]="option.percent">
+          {{ option.percent }}%
+        </option>
+      </select>
+    </label>
+  
+    <label>
+      רמה מקצועית:
+      <select formControlName="professionalLevel" required>
+        <option *ngFor="let level of professionalLevels$ | async" [value]="level.name">
+          {{ level.name }}
+        </option>
+      </select>
+    </label>
+  
+    <label>
+      רמה ניהולית:
+      <select formControlName="managementLevel" required>
+        <option *ngFor="let level of managementLevels$ | async" [value]="level.name">
+          {{ level.name }}
+        </option>
+      </select>
+    </label>
+  
+    <label>
+      שנות וותק:
+      <input type="number" formControlName="seniorityYears" min="0" required />
+    </label>
+  
+    <label>
+      <input type="checkbox" formControlName="lawBonusEligible" />
+      זכאי לתוספת עבודה בחוק
+    </label>
+  
+    <label *ngIf="form.get('lawBonusEligible')?.value">
+      שייכות לקבוצה:
+      <select formControlName="lawBonusGroup" required>
+        <option *ngFor="let group of lawBonusGroups$ | async" [value]="group.name">
+          {{ group.name }}
+        </option>
+      </select>
+    </label>
+  
+    <button type="submit" [disabled]="form.invalid">חשב שכר</button>
+  </form>
+  
+  <div *ngIf="result">
+    <h3>תוצאות חישוב שכר:</h3>
+    <p>שכר יסוד: {{ result.baseSalary | number:'1.2-2' }}</p>
+    <p>אחוז תוספת וותק: {{ result.seniorityBonusPercent | number:'1.2-2' }}%</p>
+    <p>תוספת וותק: {{ result.seniorityBonusAmount | number:'1.2-2' }}</p>
+    <p>תוספת עבודה בחוק: {{ result.lawBonusAmount | number:'1.2-2' }}</p>
+    <p>שכר לפני העלאה: {{ result.salaryBeforeRaise | number:'1.2-2' }}</p>
+    <p>אחוז העלאה: {{ result.raisePercent | number:'1.2-2' }}%</p>
+    <p>תוספת העלאה: {{ result.raiseAmount | number:'1.2-2' }}</p>
+    <p>שכר לאחר העלאה: {{ result.salaryAfterRaise | number:'1.2-2' }}</p>
+  </div>
+   -->
+
+   <form [formGroup]="form" (ngSubmit)="submit()">
+    <!-- אחוז משרה -->
+    <mat-form-field appearance="fill">
+      <mat-label>אחוז משרה</mat-label>
+      <mat-select formControlName="partTimePercent">
+        <mat-option *ngFor="let item of partTimePercents$ | async" [value]="item.id">
+          {{ item.value }}%
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- דרגה מקצועית -->
+    <mat-form-field appearance="fill">
+      <mat-label>דרגה מקצועית</mat-label>
+      <mat-select formControlName="professionalLevel">
+        <mat-option *ngFor="let item of professionalLevels$ | async" [value]="item.id">
+          {{ item.value }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- דרגה ניהולית -->
+    <mat-form-field appearance="fill">
+      <mat-label>דרגה ניהולית</mat-label>
+      <mat-select formControlName="managementLevel">
+        <mat-option *ngFor="let item of managementLevels$ | async" [value]="item.id">
+          {{ item.value }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <!-- ותק בשנים -->
+    <mat-form-field appearance="fill">
+      <mat-label>שנות ותק</mat-label>
+      <input matInput type="number" formControlName="seniorityYears" min="0" />
+    </mat-form-field>
+  
+    <!-- זכאות לתוספת לפי חוק -->
+    <mat-checkbox formControlName="lawBonusEligible">זכאי לתוספת לפי חוק</mat-checkbox>
+  
+    <!-- קבוצה לתוספת חוק (תלויה ב-checkbox) -->
+    <mat-form-field appearance="fill">
+      <mat-label>קבוצת תוספת לפי חוק</mat-label>
+      <mat-select formControlName="lawBonusGroup">
+        <mat-option *ngFor="let item of lawBonusGroups$ | async" [value]="item.id">
+          {{ item.value }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <!-- כפתור שליחה -->
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">חשב שכר</button>
+  </form>
+  <div *ngIf="result">
+    <h3>תוצאות חישוב שכר:</h3>
+    <p>שכר יסוד: {{ result.baseSalary | number:'1.2-2' }}</p>
+    <p>אחוז תוספת וותק: {{ result.seniorityBonusPercent | number:'1.2-2' }}%</p>
+    <p>תוספת וותק: {{ result.seniorityBonusAmount | number:'1.2-2' }}</p>
+    <p>תוספת עבודה בחוק: {{ result.lawBonusAmount | number:'1.2-2' }}</p>
+    <p>שכר לפני העלאה: {{ result.salaryBeforeRaise | number:'1.2-2' }}</p>
+    <p>אחוז העלאה: {{ result.raisePercent | number:'1.2-2' }}%</p>
+    <p>תוספת העלאה: {{ result.raiseAmount | number:'1.2-2' }}</p>
+    <p>שכר לאחר העלאה: {{ result.salaryAfterRaise | number:'1.2-2' }}</p>
+  </div>
