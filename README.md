@@ -48,4 +48,7 @@ cd client
 npm install
 ng serve
 
+במיקום זה: https://github.com/ChanaVatury/salary-calculator/blob/main/client/SalaryCalculator-Client/src/assets/application-picture.png?raw=true
+מצורפת תמונה של האפליקציה עם הדוגמא שהיתה בדף האפיון
+
 
