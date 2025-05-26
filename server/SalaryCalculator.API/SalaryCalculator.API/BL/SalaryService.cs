@@ -61,7 +61,6 @@ namespace SalaryCalculator.API.Services
             baseHourlyRate += managementLevelNumber * 20;
 
             // 3. חישוב שכר יסוד לפי אחוז משרה
-            //decimal salaryBase = baseHourlyRate * baseHoursPerMonth * ((int)input.PartTimePercent / 100m);
             decimal salaryBase = baseHourlyRate * baseHoursPerMonth * (partTimePercent.Percent / 100m);
 
             // 4. חישוב תוספת ותק - 1.25% לכל שנת ותק
