@@ -70,8 +70,6 @@
     </mat-card-content>
 </mat-card>
 
-
-
 <!-- תוצאה -->
 <mat-card class="result-card" *ngIf="result">
     <mat-card-title>
@@ -80,14 +78,14 @@
     </mat-card-title>
     <mat-card-content>
         <mat-list>
-            <mat-list-item>💼 שכר יסוד: {{ result.baseSalary | number:'1.2-2' }}</mat-list-item>
-            <mat-list-item>📈 אחוז תוספת ותק: {{ result.seniorityBonusPercent | number:'1.2-2' }}%</mat-list-item>
-            <mat-list-item>➕ תוספת ותק: {{ result.seniorityBonusAmount | number:'1.2-2' }}</mat-list-item>
-            <mat-list-item>⚖️ תוספת לפי חוק: {{ result.lawBonusAmount | number:'1.2-2' }}</mat-list-item>
-            <mat-list-item>🧾 שכר לפני העלאה: {{ result.salaryBeforeRaise | number:'1.2-2' }}</mat-list-item>
-            <mat-list-item>📊 אחוז העלאה: {{ result.raisePercent | number:'1.2-2' }}%</mat-list-item>
-            <mat-list-item>⬆️ תוספת העלאה: {{ result.raiseAmount | number:'1.2-2' }}</mat-list-item>
-            <mat-list-item>💰 שכר לאחר העלאה: {{ result.salaryAfterRaise | number:'1.2-2' }}</mat-list-item>
+            <mat-list-item>💼 שכר יסוד לפי חלקיות משרה: {{ result.baseSalary | number:'1.2-2' }}</mat-list-item>
+            <mat-list-item>📈 שיעור תוספת ותק: {{ result.seniorityBonusPercent | number:'1.2-2' }}%</mat-list-item>
+            <mat-list-item>➕ תוספת ותק לשכר: {{ result.seniorityBonusAmount | number:'1.2-2' }}</mat-list-item>
+            <mat-list-item>⚖️ תוספת עבודה מתוקף מינוי בחוק: {{ result.lawBonusAmount | number:'1.2-2' }}</mat-list-item>
+            <mat-list-item>🧾 סה"כ שכר בסיס לפני העלאה: {{ result.salaryBeforeRaise | number:'1.2-2' }}</mat-list-item>
+            <mat-list-item>📊 שיעור העלאת שכר: {{ result.raisePercent | number:'1.2-2' }}%</mat-list-item>
+            <mat-list-item>⬆️ תוספת העלאת שכר: {{ result.raiseAmount | number:'1.2-2' }}</mat-list-item>
+            <mat-list-item>💰 שכר בסיס חדש: {{ result.salaryAfterRaise | number:'1.2-2' }}</mat-list-item>
         </mat-list>
     </mat-card-content>
 </mat-card>

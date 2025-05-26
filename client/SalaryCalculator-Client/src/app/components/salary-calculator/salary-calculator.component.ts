@@ -45,8 +45,7 @@ export class SalaryCalculatorComponent implements OnInit {
 
   submit() {
     if (this.form.invalid) return;
-    const input = this.form.getRawValue();    console.log(input)
-
+    const input = this.form.getRawValue();
     this.salaryService.calculateSalary(input).subscribe(res => {
       this.result = res;
     });
