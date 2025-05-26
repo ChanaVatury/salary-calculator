@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SalaryCalculator.API.DAL;
 
@@ -11,9 +12,11 @@ using SalaryCalculator.API.DAL;
 namespace SalaryCalculator.API.Migrations
 {
     [DbContext(typeof(SalaryDbContext))]
-    partial class SalaryDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250526151302_updateTables")]
+    partial class updateTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

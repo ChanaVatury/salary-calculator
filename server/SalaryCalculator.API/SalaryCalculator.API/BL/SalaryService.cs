@@ -1,4 +1,5 @@
-﻿using SalaryCalculator.API.DAL;
+﻿using Microsoft.EntityFrameworkCore;
+using SalaryCalculator.API.DAL;
 using SalaryCalculator.API.Enums;
 using SalaryCalculator.API.Models;
 
@@ -51,16 +52,21 @@ namespace SalaryCalculator.API.Services
                     baseHourlyRate = 100; // ברירת מחדל
                     break;
             }
+            var allPercents = await GetPartTimePercentsAsync();
+            var partTimePercent = allPercents.FirstOrDefault(p => p.Id == (int)input.PartTimePercent);
 
+            var allManagementLevel = await GetManagementLevelsAsync();
+            var managementLeve = allManagementLevel.FirstOrDefault(p => p.Id == (int)input.ManagementLevel);
             // 2. הוספת תוספת לרמה ניהולית (20 ש"ח לכל רמה)
-            int managementLevelNumber = (int)input.ManagementLevel;
+            int managementLevelNumber = managementLeve.LevelValue;
             baseHourlyRate += managementLevelNumber * 20;
 
             // 3. חישוב שכר יסוד לפי אחוז משרה
-            decimal salaryBase = baseHourlyRate * baseHoursPerMonth * ((int)input.PartTimePercent / 100m);
+            //decimal salaryBase = baseHourlyRate * baseHoursPerMonth * ((int)input.PartTimePercent / 100m);
+            decimal salaryBase = baseHourlyRate * baseHoursPerMonth * (partTimePercent.Percent / 100m);
 
             // 4. חישוב תוספת ותק (1.25% לכל שנת ותק)
-            decimal seniorityBonusPercent = 1.25m * input.SeniorityYears;
+            decimal seniorityBonusPercent = 1.25m * (int)input.SeniorityYears;
             decimal seniorityBonusAmount = salaryBase * (seniorityBonusPercent / 100m);
 
             // 5. חישוב תוספת עבודה בחוק (1% לקבוצה א', 0.5% לקבוצה ב')

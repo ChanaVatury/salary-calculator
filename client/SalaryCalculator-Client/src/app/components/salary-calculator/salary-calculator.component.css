@@ -1,0 +1,25 @@
+.salary-form-card, .result-card {
+    margin: 2rem auto;
+    max-width: 800px;
+    padding: 1rem;
+    align-items: center;
+    /* direction: rtl; */
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    align-items: start;
+  }
+  
+  .full-width {
+    grid-column: span 2;
+  }
+  
+  .submit-wrapper {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+  }
+  

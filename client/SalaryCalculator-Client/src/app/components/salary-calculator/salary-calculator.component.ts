@@ -30,7 +30,6 @@ export class SalaryCalculatorComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.salaryService.getPartTimePercents().subscribe(res=>console.log(res))
     this.partTimePercents$ = this.salaryService.getPartTimePercents().pipe(map(res => res.map(ins => { return { id: ins.id, value: ins?.percent } })));;
     this.professionalLevels$ = this.salaryService.getProfessionalLevels().pipe(map(res => res.map(ins => { return { id: ins.id, value: ins?.name } })));;
     this.managementLevels$ = this.salaryService.getManagementLevels().pipe(map(res => res.map(ins => { return { id: ins.id, value: ins?.name } })));;
@@ -46,7 +45,8 @@ export class SalaryCalculatorComponent implements OnInit {
 
   submit() {
     if (this.form.invalid) return;
-    const input = this.form.getRawValue();
+    const input = this.form.getRawValue();    console.log(input)
+
     this.salaryService.calculateSalary(input).subscribe(res => {
       this.result = res;
     });

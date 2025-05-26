@@ -9,7 +9,7 @@ namespace SalaryCalculator.API.Models
         public ManagementLevelEnum ManagementLevel { get; set; }
         public decimal SeniorityYears { get; set; }
         public bool LawBonusEligible { get; set; }
-        public LawBonusGroupEnum LawBonusGroup { get; set; } // אם !LawBonusEligible => None
+        public LawBonusGroupEnum? LawBonusGroup { get; set; } // אם !LawBonusEligible => None
 
     }
 }
