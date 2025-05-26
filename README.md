@@ -12,7 +12,7 @@
 
 שפות תכנות: TypeScript (לקוח), C# (שרת)
 
-מבנה: SPA + REST API
+מבנה: REST API
 
 הקמה מקומית:
 
