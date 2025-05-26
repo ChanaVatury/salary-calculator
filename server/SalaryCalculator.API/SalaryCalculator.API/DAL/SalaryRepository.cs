@@ -32,9 +32,9 @@ namespace SalaryCalculator.API.DAL
             return await _context.LawBonusGroups.ToListAsync();
         }
 
-        public async Task SaveSalaryCalculationAsync(SalaryCalculationRecord record)
+        public async Task SaveSalaryCalculationAsync(SalaryCalculationResult salaryCalculation)
         {
-            _context.SalaryCalculations.Add(record);
+            _context.SalaryCalculations.Add(salaryCalculation);
             await _context.SaveChangesAsync();
         }
     }
