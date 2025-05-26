@@ -7,9 +7,9 @@
     <mat-card-content>
         <form [formGroup]="form">
             <div class="form-grid">
-                <!-- אחוז משרה -->
+                <!-- חלקיות המשרה -->
                 <mat-form-field appearance="outline">
-                    <mat-label>אחוז משרה</mat-label>
+                    <mat-label>חלקיות המשרה</mat-label>
                     <mat-select formControlName="partTimePercent">
                         <mat-option *ngFor="let item of partTimePercents$ | async" [value]="item.id">
                             {{ item.value }}%
@@ -17,9 +17,9 @@
                     </mat-select>
                 </mat-form-field>
 
-                <!-- דרגה מקצועית -->
+                <!-- רמה מקצועית -->
                 <mat-form-field appearance="outline">
-                    <mat-label>דרגה מקצועית</mat-label>
+                    <mat-label>רמה מקצועית</mat-label>
                     <mat-select formControlName="professionalLevel">
                         <mat-option *ngFor="let item of professionalLevels$ | async" [value]="item.id">
                             {{ item.value }}
@@ -27,9 +27,9 @@
                     </mat-select>
                 </mat-form-field>
 
-                <!-- דרגה ניהולית -->
+                <!-- רמה ניהולית -->
                 <mat-form-field appearance="outline">
-                    <mat-label>דרגה ניהולית</mat-label>
+                    <mat-label>רמה ניהולית</mat-label>
                     <mat-select formControlName="managementLevel">
                         <mat-option *ngFor="let item of managementLevels$ | async" [value]="item.id">
                             {{ item.value }}
