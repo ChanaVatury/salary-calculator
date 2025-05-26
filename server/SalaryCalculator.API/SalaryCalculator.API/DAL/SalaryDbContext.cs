@@ -6,10 +6,7 @@ namespace SalaryCalculator.API.DAL
     public class SalaryDbContext : DbContext
     {
         public SalaryDbContext(DbContextOptions<SalaryDbContext> options) : base(options) { }
-
-        public DbSet<SalaryCalculationResult> SalaryCalculations { get; set; }
-        public DbSet<SalaryCalculationRecord> SalaryCalculationRecord { get; set; }
-
+        public DbSet<SalaryCalculationRecord> SalaryCalculations { get; set; }
         public DbSet<PartTimePercent> PartTimePercents { get; set; }
         public DbSet<ProfessionalLevel> ProfessionalLevels { get; set; }
         public DbSet<ManagementLevel> ManagementLevels { get; set; }

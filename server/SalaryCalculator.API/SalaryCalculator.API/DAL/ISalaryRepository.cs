@@ -9,6 +9,6 @@ namespace SalaryCalculator.API.DAL
         Task<List<ManagementLevel>> GetManagementLevelsAsync();
         Task<List<LawBonusGroup>> GetLawBonusGroupsAsync();
 
-        Task SaveSalaryCalculationAsync(SalaryCalculationResult record);
+        Task SaveSalaryCalculationAsync(SalaryCalculationRecord record);
     }
 }

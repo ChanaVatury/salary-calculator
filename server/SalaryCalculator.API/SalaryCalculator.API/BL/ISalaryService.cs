@@ -8,6 +8,6 @@ namespace SalaryCalculator.API.Services
         Task<List<ProfessionalLevel>> GetProfessionalLevelsAsync();
         Task<List<ManagementLevel>> GetManagementLevelsAsync();
         Task<List<LawBonusGroup>> GetLawBonusGroupsAsync();
-        Task<SalaryCalculationResult> CalculateSalaryAsync(SalaryCalculationResult input);
+        Task<SalaryCalculationResult> CalculateSalaryAsync(SalaryCalculationInput input);
     }
 }
