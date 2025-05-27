@@ -25,27 +25,22 @@ export class SalaryCalculatorComponent implements OnInit {
       managementLevel: [null, Validators.required],
       seniorityYears: [0, [Validators.required, Validators.min(0)]],
       lawBonusEligible: [false],
-      lawBonusGroup: [{ value: null, disabled: true }]
+      lawBonusGroup: [{ value: null }]
     });
   }
 
   ngOnInit() {
+    //  טעינת כל רשימות הבחירה מהשרת (אחוזי משרה, דרגות מקצועיות וניהוליות, קבוצת תוספת עבודה לזכאים בחוק)
     this.partTimePercents$ = this.salaryService.getPartTimePercents().pipe(map(res => res.map(ins => { return { id: ins.id, value: ins?.percent } })));;
     this.professionalLevels$ = this.salaryService.getProfessionalLevels().pipe(map(res => res.map(ins => { return { id: ins.id, value: ins?.name } })));;
     this.managementLevels$ = this.salaryService.getManagementLevels().pipe(map(res => res.map(ins => { return { id: ins.id, value: ins?.name } })));;
     this.lawBonusGroups$ = this.salaryService.getLawBonusGroups().pipe(map(res => res.map(ins => { return { id: ins.id, value: ins?.name } })));
-
-    this.form.get('lawBonusEligible')?.valueChanges.subscribe(enabled => {
-      const control = this.form.get('lawBonusGroup');
-      if (enabled) control?.enable();
-      else control?.disable();
-    });
-
   }
 
   submit() {
     if (this.form.invalid) return;
     const input = this.form.getRawValue();
+    // שליחה לפונקציה בסרביס, פונקציה שמחשבת בסרבר את תוצאת העלאת שכר
     this.salaryService.calculateSalary(input).subscribe(res => {
       this.result = res;
     });

@@ -39,18 +39,18 @@
 
                 <!-- ותק בשנים -->
                 <mat-form-field appearance="outline">
-                    <mat-label>שנות ותק</mat-label>
+                    <mat-label> סה"כ שנות ותק</mat-label>
                     <input matInput type="number" formControlName="seniorityYears" min="0" />
                 </mat-form-field>
 
-                <!-- זכאות לתוספת חוק -->
+                <!-- זכאות לתוספת עבודה בחוק -->
                 <mat-checkbox formControlName="lawBonusEligible" >
-                    זכאות לתוספת לפי חוק
+                    זכאות לתוספת עבודה בחוק
                 </mat-checkbox>
 
-                <!-- קבוצה לתוספת חוק -->
-                <mat-form-field appearance="outline">
-                    <mat-label>קבוצת תוספת לפי חוק</mat-label>
+                <!-- עבור זכאי בלבד יוצג רשימה של קבוצות   -->
+                <mat-form-field appearance="outline" *ngIf="form.get('lawBonusEligible')?.value">
+                    <mat-label> שייכות לקבוצה </mat-label>
                     <mat-select formControlName="lawBonusGroup">
                         <mat-option *ngFor="let item of lawBonusGroups$ | async" [value]="item.id">
                             {{ item.value }}
@@ -63,7 +63,7 @@
             <div class="submit-wrapper">
                 <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid" (click)="submit()">
                     <mat-icon>send</mat-icon>
-                    חשב שכר
+                    חשב את השכר שלי
                 </button>
             </div>
         </form>
@@ -79,13 +79,13 @@
     <mat-card-content>
         <mat-list>
             <mat-list-item>💼 שכר יסוד לפי חלקיות משרה: {{ result.baseSalary | number:'1.2-2' }}</mat-list-item>
-            <mat-list-item>📈 שיעור תוספת ותק: {{ result.seniorityBonusPercent | number:'1.2-2' }}%</mat-list-item>
-            <mat-list-item>➕ תוספת ותק לשכר: {{ result.seniorityBonusAmount | number:'1.2-2' }}</mat-list-item>
-            <mat-list-item>⚖️ תוספת עבודה מתוקף מינוי בחוק: {{ result.lawBonusAmount | number:'1.2-2' }}</mat-list-item>
+            <mat-list-item>📈 שיעור תוספת וותק: {{ result.seniorityBonusPercent | number:'1.2-2' }}%</mat-list-item>
+            <mat-list-item>➕ סה"כ תוספת וותק לשכר: {{ result.seniorityBonusAmount | number:'1.2-2' }}</mat-list-item>
+            <mat-list-item>⚖️ סה"כ תוספת עבודה מתוקף מינוי בחוק: {{ result.lawBonusAmount | number:'1.2-2' }}</mat-list-item>
             <mat-list-item>🧾 סה"כ שכר בסיס לפני העלאה: {{ result.salaryBeforeRaise | number:'1.2-2' }}</mat-list-item>
             <mat-list-item>📊 שיעור העלאת שכר: {{ result.raisePercent | number:'1.2-2' }}%</mat-list-item>
-            <mat-list-item>⬆️ תוספת העלאת שכר: {{ result.raiseAmount | number:'1.2-2' }}</mat-list-item>
-            <mat-list-item>💰 שכר בסיס חדש: {{ result.salaryAfterRaise | number:'1.2-2' }}</mat-list-item>
+            <mat-list-item>⬆️ סה"כ תוספת העלאת שכר: {{ result.raiseAmount | number:'1.2-2' }}</mat-list-item>
+            <mat-list-item>💰 סה"כ שכר בסיס לאחר העלאה: {{ result.salaryAfterRaise | number:'1.2-2' }}</mat-list-item>
         </mat-list>
     </mat-card-content>
 </mat-card>
