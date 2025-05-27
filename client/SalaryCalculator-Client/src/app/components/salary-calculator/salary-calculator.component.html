@@ -1,7 +1,7 @@
 <mat-card class="salary-form-card">
-    <mat-card-title>
+    <mat-card-title class="card-title-centered">
         <mat-icon>calculate</mat-icon>
-        חישוב שכר
+        מחשבון חישוב להעלאת שכר
     </mat-card-title>
 
     <mat-card-content>
@@ -44,7 +44,7 @@
                 </mat-form-field>
 
                 <!-- זכאות לתוספת עבודה בחוק -->
-                <mat-checkbox formControlName="lawBonusEligible" >
+                <mat-checkbox formControlName="lawBonusEligible">
                     זכאות לתוספת עבודה בחוק
                 </mat-checkbox>
 
@@ -81,7 +81,8 @@
             <mat-list-item>💼 שכר יסוד לפי חלקיות משרה: {{ result.baseSalary | number:'1.2-2' }}</mat-list-item>
             <mat-list-item>📈 שיעור תוספת וותק: {{ result.seniorityBonusPercent | number:'1.2-2' }}%</mat-list-item>
             <mat-list-item>➕ סה"כ תוספת וותק לשכר: {{ result.seniorityBonusAmount | number:'1.2-2' }}</mat-list-item>
-            <mat-list-item>⚖️ סה"כ תוספת עבודה מתוקף מינוי בחוק: {{ result.lawBonusAmount | number:'1.2-2' }}</mat-list-item>
+            <mat-list-item>⚖️ סה"כ תוספת עבודה מתוקף מינוי בחוק: {{ result.lawBonusAmount | number:'1.2-2'
+                }}</mat-list-item>
             <mat-list-item>🧾 סה"כ שכר בסיס לפני העלאה: {{ result.salaryBeforeRaise | number:'1.2-2' }}</mat-list-item>
             <mat-list-item>📊 שיעור העלאת שכר: {{ result.raisePercent | number:'1.2-2' }}%</mat-list-item>
             <mat-list-item>⬆️ סה"כ תוספת העלאת שכר: {{ result.raiseAmount | number:'1.2-2' }}</mat-list-item>

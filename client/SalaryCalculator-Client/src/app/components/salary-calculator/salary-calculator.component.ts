@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable, forkJoin, map } from 'rxjs';
-import { LookupItem, SalaryCalculationResult, SalaryService } from 'src/app/services/salary.service';
+import { Observable, map } from 'rxjs';
+import { SalaryCalculationResult, SalaryService } from 'src/app/services/salary.service';
 
 @Component({
   selector: 'app-salary-calculator',

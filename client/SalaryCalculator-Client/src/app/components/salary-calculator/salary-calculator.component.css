@@ -1,26 +1,32 @@
-.salary-form-card, .result-card {
-    margin: 2rem auto;
-    max-width: 800px;
-    padding: 1rem;
-    /* align-items: center; */
-    /* direction: rtl; */
-  }
-  
-  .form-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1rem;
-    align-items: start;
-    padding-top: 1rem;
-  }
-  
-  .full-width {
-    grid-column: span 2;
-  }
-  
-  .submit-wrapper {
-    margin-top: 1.5rem;
-    display: flex;
-    justify-content: center;
-  }
-  
+.salary-form-card,
+.result-card {
+  margin: 2rem auto;
+  max-width: 50rem;
+  padding: 1rem;
+}
+
+.card-title-centered {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  gap: 0.5rem;            
+  font-size: 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+  align-items: start;
+  padding-top: 1rem;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+.submit-wrapper {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
