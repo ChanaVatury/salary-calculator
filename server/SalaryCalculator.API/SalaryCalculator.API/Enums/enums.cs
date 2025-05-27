@@ -21,7 +21,6 @@
     }
     public enum LawBonusGroupEnum
     {
-        None = 0,
         GroupA = 1,
         GroupB = 2
     }

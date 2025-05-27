@@ -30,15 +30,7 @@ namespace SalaryCalculator.API.DAL
                 new ManagementLevel { Id = 2, Name = "רמת ניהול 1", LevelValue = 1 },
                 new ManagementLevel { Id = 3, Name = "רמת ניהול 2", LevelValue = 2 },
                 new ManagementLevel { Id = 4, Name = "רמת ניהול 3", LevelValue = 3 },
-                new ManagementLevel { Id = 5, Name = "רמת ניהול 4", LevelValue = 4 }
-);
-
-            //modelBuilder.Entity<ManagementLevel>().HasData(
-            //    new ManagementLevel { Id = 1, Name = "ללא" },
-            //    new ManagementLevel { Id = 2, Name = "רמת ניהול 1" },
-            //    new ManagementLevel { Id = 3, Name = "רמת ניהול 2" },
-            //    new ManagementLevel { Id = 4, Name = "רמת ניהול 3" },
-            //    new ManagementLevel { Id = 5, Name = "רמת ניהול 4" });
+                new ManagementLevel { Id = 5, Name = "רמת ניהול 4", LevelValue = 4 });
 
             modelBuilder.Entity<LawBonusGroup>().HasData(
                 new LawBonusGroup { Id = 1, Name = "קבוצה א'" },

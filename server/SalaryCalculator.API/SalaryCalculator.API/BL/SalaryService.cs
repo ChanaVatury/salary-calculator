@@ -82,7 +82,7 @@ namespace SalaryCalculator.API.Services
                 }
             }
 
-            // 6. חישוב שכר לפני תוספת העלאה
+            // 6. חישוב שכר לפני ההעלאה
             decimal salaryBaseBeforeRaise = salaryBase + seniorityBonusAmount + lawBonusAmount;
 
             // 7. קביעת אחוז העלאה לפי מדרגות שכר
@@ -100,10 +100,10 @@ namespace SalaryCalculator.API.Services
             // 8. חישוב גובה ההעלאה
             decimal raiseAmount = salaryBaseBeforeRaise * (raisePercent / 100m);
 
-            // 9. שכר כולל לאחר ההעלאה
+            // 9. שכר כולל ההעלאה
             decimal salaryBaseAfterRaise = salaryBaseBeforeRaise + raiseAmount;
 
-            // 10. בניית תוצאת החישוב
+            // 10. תוצאת החישוב
             var result = new SalaryCalculationResult
             {
                 BaseSalary = salaryBase,
@@ -117,7 +117,8 @@ namespace SalaryCalculator.API.Services
             };
 
             return await Task.FromResult(result);
+
         }
-        
+
     }
 }

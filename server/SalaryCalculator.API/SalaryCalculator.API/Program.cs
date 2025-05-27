@@ -21,7 +21,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       policy =>
                       {
-                          policy.WithOrigins("http://localhost:4200")  // הכתובת של האנגולר
+                          policy.WithOrigins("http://localhost:4200")  // הכתובת של הקליינט
                                 .AllowAnyHeader()
                                 .AllowAnyMethod();
                       });
