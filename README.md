@@ -27,7 +27,9 @@ ASP.NET Core 8 (Web API), Entity Framework Core
 TypeScript (בצד הלקוח), C# (בצד השרת)
 
 בסיס נתונים:
-SQL SERVER
+In-Memory (ללא SQL Server)
+הפרויקט משתמש ב־Entity Framework Core In-Memory כתחליף לבסיס נתונים.
+
 
 האפליקציה בנויה במודל של שלוש שכבות מופרדות:
 
@@ -35,15 +37,10 @@ SQL SERVER
 
 כדי להפעיל את הפרויקט אצלכם, יש לבצע את הצעדים הבאים:
 
-1. יצירת מסד נתונים:
-בתיקיית הפרויקט של ה־API, יש להריץ:
-dotnet ef migrations add InitialCreate .1
-dotnet ef database update .2  
-
-2. הפעלת השרת (Backend):
+1. הפעלת השרת (Backend):
 dotnet run
 
-3. הפעלת לקוח Angular (Frontend):
+2. הפעלת לקוח Angular (Frontend):
 cd client
 npm install
 ng serve
