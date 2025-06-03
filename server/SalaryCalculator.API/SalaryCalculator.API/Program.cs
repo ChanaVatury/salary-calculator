@@ -12,8 +12,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ISalaryRepository, SalaryRepository>();
 builder.Services.AddScoped<ISalaryService, SalaryService>();
+//builder.Services.AddDbContext<SalaryDbContext>(options =>
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("SalaryDb")));
 builder.Services.AddDbContext<SalaryDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("SalaryDb")));
+    options.UseInMemoryDatabase("SalaryDb"));
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 builder.Services.AddCors(options =>
@@ -30,7 +32,11 @@ builder.Services.AddCors(options =>
 
 
 var app = builder.Build();
-
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<SalaryDbContext>();
+    db.Database.EnsureCreated();
+}
 app.UseCors(MyAllowSpecificOrigins);
 
 // Configure the HTTP request pipeline.
